@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 let isReplicaSet = false;
 
 async function connectDB() {
-    const mongoUri = process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017/tradepulse';
-    
+    const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/tradepulse';
+
     try {
         await mongoose.connect(mongoUri);
         console.log(`[TradePulse DB] Connected to MongoDB at ${mongoUri}`);
