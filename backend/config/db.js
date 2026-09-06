@@ -7,7 +7,7 @@ async function connectDB() {
 
     try {
         await mongoose.connect(mongoUri);
-        console.log(`[TradePulse DB] Connected to MongoDB at ${mongoUri}`);
+        console.log('[TradePulse DB] Connected to MongoDB successfully.');
 
         // Inspect topology for replica set support
         try {
