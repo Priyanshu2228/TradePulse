@@ -1,0 +1,600 @@
+/* ============================================================
+   StockDetail.css
+   Styles for the Stock Detail page and all sub-components.
+   
+   Conventions:
+   - Follows existing index.css naming style
+   - No Tailwind
+   - Colors from existing palette:
+       blue:  #4184f3
+       green: #4caf50
+       red:   #df514c
+       text:  rgb(71, 71, 71)
+       muted: rgb(153, 153, 153)
+       border: rgb(235, 234, 234)
+   ============================================================ */
+
+/* ── Page container ──────────────────────────────────────── */
+
+.stock-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  color: rgb(71, 71, 71);
+  padding-bottom: 24px;
+}
+
+/* ── Instrument Header ───────────────────────────────────── */
+
+.instrument-header {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid rgb(235, 234, 234);
+}
+
+.instrument-header__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.instrument-header__back-btn {
+  background: none;
+  border: 1px solid rgb(210, 210, 210);
+  color: rgb(100, 100, 100);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-top: 2px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.instrument-header__back-btn:hover {
+  background: rgb(245, 245, 245);
+  color: rgb(50, 50, 50);
+}
+
+.instrument-header__identity {
+  flex: 1;
+}
+
+.instrument-header__symbol-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.instrument-header__symbol {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(40, 40, 40);
+  letter-spacing: 0.3px;
+}
+
+.instrument-header__company {
+  font-size: 13px;
+  color: rgb(100, 100, 100);
+  font-weight: 300;
+  margin-bottom: 2px;
+}
+
+.instrument-header__sector {
+  font-size: 11px;
+  color: rgb(160, 160, 160);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Badges */
+.instrument-header__badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.instrument-header__badge--exchange {
+  background: rgb(235, 242, 255);
+  color: #4184f3;
+  border: 1px solid rgba(65, 132, 243, 0.3);
+}
+
+.instrument-header__badge--index {
+  background: rgb(255, 248, 230);
+  color: rgb(180, 120, 20);
+  border: 1px solid rgba(180, 120, 20, 0.3);
+}
+
+.instrument-header__badge--simulated {
+  background: rgb(255, 244, 230);
+  color: rgb(180, 100, 20);
+  border: 1px solid rgba(180, 100, 20, 0.25);
+}
+
+.instrument-header__badge--live {
+  background: rgb(235, 250, 235);
+  color: rgb(30, 140, 50);
+  border: 1px solid rgba(30, 140, 50, 0.3);
+}
+
+.instrument-header__badge--stale {
+  background: rgb(255, 240, 240);
+  color: rgb(200, 50, 50);
+  border: 1px solid rgba(200, 50, 50, 0.3);
+}
+
+.instrument-header__badge--closed {
+  background: rgb(240, 244, 250);
+  color: rgb(60, 90, 140);
+  border: 1px solid rgba(60, 90, 140, 0.3);
+}
+
+.instrument-header__badge--paper {
+  background: rgb(235, 245, 255);
+  color: #4184f3;
+  border: 1px solid rgba(65, 132, 243, 0.25);
+}
+
+/* Price row */
+.instrument-header__price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.instrument-header__price-group {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.instrument-header__price {
+  font-size: 26px;
+  font-weight: 300;
+  color: rgb(40, 40, 40);
+}
+
+.instrument-header__change {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.instrument-header__price-unavailable {
+  font-size: 13px;
+  color: rgb(160, 160, 160);
+  font-style: italic;
+}
+
+.instrument-header__badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ── Timeframe Selector ──────────────────────────────────── */
+
+.timeframe-selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(235, 234, 234);
+  background: rgb(252, 252, 252);
+}
+
+.timeframe-selector__ranges {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.timeframe-selector__intervals {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid rgb(220, 220, 220);
+  flex-wrap: wrap;
+}
+
+.timeframe-selector__label {
+  font-size: 11px;
+  color: rgb(160, 160, 160);
+  margin-right: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.timeframe-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: rgb(100, 100, 100);
+  padding: 4px 9px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.timeframe-btn:hover {
+  background: rgb(240, 244, 255);
+  color: #4184f3;
+}
+
+.timeframe-btn--active {
+  background: rgb(235, 242, 255);
+  color: #4184f3;
+  border-color: rgba(65, 132, 243, 0.4);
+  font-weight: 600;
+}
+
+/* ── Limit Warning Banner ────────────────────────────────── */
+
+.limit-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 12px 20px 0;
+  padding: 14px 16px;
+  background: rgb(255, 250, 235);
+  border: 1px solid rgb(230, 190, 100);
+  border-radius: 6px;
+}
+
+.limit-warning__icon {
+  font-size: 18px;
+  color: rgb(180, 120, 20);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.limit-warning__body {
+  flex: 1;
+}
+
+.limit-warning__title {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(120, 80, 10);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+.limit-warning__detail {
+  font-size: 12px;
+  color: rgb(140, 100, 20);
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.limit-warning__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.limit-warning__btn {
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.limit-warning__btn--primary {
+  background: #4184f3;
+  color: #fff;
+  border: none;
+}
+
+.limit-warning__btn--primary:hover {
+  background: #74a7fa;
+}
+
+.limit-warning__btn--secondary {
+  background: #fff;
+  color: rgb(100, 100, 100);
+  border: 1px solid rgb(200, 200, 200);
+}
+
+.limit-warning__btn--secondary:hover {
+  background: rgb(245, 245, 245);
+}
+
+/* ── Chart Area ──────────────────────────────────────────── */
+
+.stock-detail__chart-area {
+  padding: 16px 20px 0;
+  min-height: 340px;
+}
+
+/* Skeleton loader */
+.stock-detail__skeleton {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 280px;
+  padding: 20px 0 10px;
+}
+
+.skeleton-bar {
+  flex: 1;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s infinite;
+  border-radius: 2px;
+}
+
+.skeleton-bar--tall   { height: 80%; }
+.skeleton-bar--medium { height: 55%; }
+.skeleton-bar--short  { height: 35%; }
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Error state */
+.stock-detail__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  text-align: center;
+  color: rgb(160, 160, 160);
+  gap: 12px;
+}
+
+.stock-detail__error p {
+  font-size: 14px;
+  color: rgb(180, 80, 80);
+  max-width: 360px;
+}
+
+.stock-detail__retry-btn {
+  padding: 7px 18px;
+  background: #4184f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.stock-detail__retry-btn:hover {
+  background: #74a7fa;
+}
+
+/* Empty state */
+.stock-detail__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  text-align: center;
+}
+
+.stock-detail__empty p {
+  font-size: 14px;
+  color: rgb(160, 160, 160);
+  max-width: 380px;
+  line-height: 1.6;
+}
+
+/* Instrument loading/error */
+.stock-detail__inst-loading {
+  padding: 16px 20px;
+  font-size: 13px;
+  color: rgb(160, 160, 160);
+}
+
+.stock-detail__inst-error {
+  padding: 20px;
+  text-align: center;
+}
+
+.stock-detail__inst-error p {
+  color: rgb(180, 80, 80);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.stock-detail__back-link {
+  background: none;
+  border: none;
+  color: #4184f3;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Partial data note */
+.stock-detail__partial-note {
+  margin: 8px 20px 0;
+  font-size: 12px;
+  color: rgb(160, 130, 60);
+  background: rgb(255, 252, 235);
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid rgb(230, 210, 140);
+}
+
+.stock-detail__inline-btn {
+  background: none;
+  border: none;
+  color: #4184f3;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* ── OHLC Chart ──────────────────────────────────────────── */
+
+.ohlc-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ohlc-chart__price-panel {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.ohlc-chart__volume-panel {
+  position: relative;
+  height: 80px;
+  width: 100%;
+}
+
+.ohlc-chart__volume-hidden {
+  font-size: 11px;
+  color: rgb(190, 190, 190);
+  text-align: right;
+  padding: 4px 0;
+  font-style: italic;
+}
+
+.ohlc-chart__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: rgb(180, 180, 180);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ── Chart Footer ────────────────────────────────────────── */
+
+.stock-detail__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px 0;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stock-detail__candle-count {
+  font-size: 11px;
+  color: rgb(180, 180, 180);
+}
+
+/* ── Chart Data Badge ────────────────────────────────────── */
+
+.chart-data-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: rgb(140, 140, 140);
+  padding: 2px 8px;
+  background: rgb(248, 248, 248);
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 10px;
+}
+
+.chart-data-badge__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4caf50;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+/* Tablet (768–1023px): watchlist hidden, content takes full width */
+@media (max-width: 1023px) {
+  .watchlist-container {
+    display: none;
+  }
+
+  .content {
+    flex-basis: 100% !important;
+  }
+
+  .ohlc-chart__price-panel {
+    height: 260px;
+  }
+}
+
+/* Mobile (<768px): stack layout, timeframe wraps */
+@media (max-width: 767px) {
+  .instrument-header {
+    padding: 12px 14px 10px;
+  }
+
+  .instrument-header__symbol {
+    font-size: 17px;
+  }
+
+  .instrument-header__price {
+    font-size: 22px;
+  }
+
+  .timeframe-selector {
+    padding: 8px 14px;
+  }
+
+  .timeframe-selector__intervals {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid rgb(220, 220, 220);
+    padding-top: 6px;
+    width: 100%;
+  }
+
+  .timeframe-btn {
+    font-size: 11px;
+    padding: 4px 7px;
+  }
+
+  .stock-detail__chart-area {
+    padding: 10px 14px 0;
+  }
+
+  .stock-detail__footer {
+    padding: 6px 14px 0;
+  }
+
+  .ohlc-chart__price-panel {
+    height: 220px;
+  }
+
+  .ohlc-chart__volume-panel {
+    height: 60px;
+  }
+
+  .limit-warning {
+    margin: 10px 14px 0;
+    padding: 12px;
+  }
+}
